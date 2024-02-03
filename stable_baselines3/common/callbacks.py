@@ -494,8 +494,11 @@ class EvalCallback(EventCallback):
             self.last_mean_reward = float(mean_reward)
 
             if self.verbose >= 1:
-                print(f"Eval num_timesteps={self.num_timesteps}, " f"episode_reward={mean_reward:.2f} +/- {std_reward:.2f}")
-                print(f"Episode length: {mean_ep_length:.2f} +/- {std_ep_length:.2f}")
+                print("\n")
+                print(f"::: Evaluation at {self.num_timesteps:,} Timesteps :::\n")
+                print(f"Episode Reward: {mean_reward:.2f} +/- {std_reward:.2f}")
+                print(f"Episode Length: {mean_ep_length:.2f} +/- {std_ep_length:.2f}")
+                print("\n")
             # Add to current Logger
             self.logger.record("eval/mean_reward", float(mean_reward))
             self.logger.record("eval/mean_ep_length", mean_ep_length)
